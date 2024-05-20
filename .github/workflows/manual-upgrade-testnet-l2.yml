@@ -34,8 +34,8 @@ on:
         type: number
 
 env:
-  TESTNET_TYPE: ${{ github.event.inputs.testnet_type || 'uat-testnet' }}"
-  LOG_LEVEL: ${{ github.event.inputs.log-level || '3' }}"
+  TESTNET_TYPE: ${{ github.event.inputs.testnet_type || 'uat-testnet' }}
+  LOG_LEVEL: ${{ github.event.inputs.log-level || '3' }}
 
 jobs:
   build:
