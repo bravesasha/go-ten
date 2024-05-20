@@ -33,16 +33,11 @@ on:
         default: 3
         type: number
 
-jobs:
-  set_inputs:
-    name: Set the inputs for either workflow dispatch or schedule
-      env:
-        SCHEDULED_TESTNET_TYPE: 'uat-testnet'
-        SCHEDULED_LOG_LEVEL: 'log-level'
-      run:
-        echo "TESTNET_TYPE=${{ github.event.inputs.testnet_type || env.SCHEDULED_TESTNET_TYPE }}" >> $GITHUB_ENV
-        echo "LOG_LEVEL=${{ github.event.inputs.log-level || env.SCHEDULED_LOG_LEVEL }}" >> $GITHUB_ENV
+env:
+  TESTNET_TYPE: ${{ github.event.inputs.testnet_type || 'uat-testnet' }}"
+  LOG_LEVEL: ${{ github.event.inputs.log-level || '3' }}"
 
+jobs:
   build:
     runs-on: ubuntu-latest
     environment:
